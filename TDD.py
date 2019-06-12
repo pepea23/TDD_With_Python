@@ -7,13 +7,13 @@ lifts = [{'floor':2,'status':'up'}, {'floor':3,'status':'down'}, {'floor':3,'sta
 
 class LiftTest(unittest.TestCase):
     def test_curent_floor_1_should_be_lift1(self):
-        expexted = 2
+        expexted = [2,'up']
         result = handleLift(1,'up')
         self.assertEqual(result, expexted)
     
     def test_curent_floor_2_should_be_lift1(self):
-        expexted = 2
-        result = handleLift(2,'up')
+        expexted = 3
+        result = handleLift(2,'down')
         self.assertEqual(result, expexted)
 
     def test_curent_floor_3_should_be_lift2(self):
@@ -23,6 +23,7 @@ class LiftTest(unittest.TestCase):
 
 
 def handleLift(num,btn):
+       
         id =  min(range(len(lifts)), key=lambda i: abs(lifts[i].get('floor')-num))
         return lifts[id].get('floor')
 
