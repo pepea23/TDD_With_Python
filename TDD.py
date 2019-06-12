@@ -8,5 +8,8 @@ class LiftTest(unittest.TestCase):
         result = handleLift(1)
         self.assertEqual(result,expexted)
     
+def handleLift(num):
+        return 'lift1'
+
 
 unittest.main()
