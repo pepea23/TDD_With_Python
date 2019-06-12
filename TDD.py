@@ -1,8 +1,7 @@
 import unittest
 
 # [lift1 ,lift2, lift3, lift4]
-lifts = [2, 3, 3, 5]
-lifts = [{'floor':2,'status':'up'}, {'floor':3,'status':'down'}, {'floor':3,'status':'none'}, {'floor':5,'status':'down'}]
+lifts = [{'floor':2,'status':'up'}, {'floor':3,'status':'down'}, {'floor':3,'status':'up'}, {'floor':5,'status':'down'}]
 
 
 class LiftTest(unittest.TestCase):
@@ -12,20 +11,24 @@ class LiftTest(unittest.TestCase):
         self.assertEqual(result, expexted)
     
     def test_curent_floor_2_should_be_lift1(self):
-        expexted = 3
+        expexted = [3,'down']
         result = handleLift(2,'down')
         self.assertEqual(result, expexted)
 
     def test_curent_floor_3_should_be_lift2(self):
-        expexted = 3
+        expexted = [3,'up']
         result = handleLift(3,'up')
         self.assertEqual(result, expexted)
 
 
 def handleLift(num,btn):
-       
-        id =  min(range(len(lifts)), key=lambda i: abs(lifts[i].get('floor')-num))
-        return lifts[id].get('floor')
+        temps = []
+        size = len(lifts)
+        for i in range(size):
+                if lifts[i].get('status') == btn:
+                        temps.insert(i,lifts[i])
+        id =  min(range(len(temps)), key=lambda i: abs(temps[i].get('floor')-num))
+        return [temps[id].get('floor'),temps[id].get('status')]
 
 
 unittest.main()
