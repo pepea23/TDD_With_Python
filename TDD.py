@@ -8,6 +8,12 @@ class LiftTest(unittest.TestCase):
         result = handleLift(1)
         self.assertEqual(result,expexted)
     
+    def test_curent_floor_2_should_be_lift1(self):
+        expexted = 'lift1'
+        result = handleLift(2)
+        self.assertEqual(result,expexted)
+
+
 def handleLift(num):
         return 'lift1'
 
