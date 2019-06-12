@@ -1,7 +1,7 @@
 import unittest
 
-# [lift1 ,lift2, lift3]
-lifts = [2, 3, 4]
+# [lift1 ,lift2, lift3, lift4]
+lifts = [2, 3, 3, 5]
 
 class LiftTest(unittest.TestCase):
     def test_curent_floor_1_should_be_lift1(self):
