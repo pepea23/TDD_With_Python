@@ -1,21 +1,27 @@
 import unittest
 
-lifts = [{'lift1':2},{'lift2':3},{'lift3':4}]
+# [lift1 ,lift2 , lift3]
+lifts = [2,3,4]
 
 class LiftTest(unittest.TestCase):
     def test_curent_floor_1_should_be_lift1(self):
-        expexted = 'lift1'
+        expexted = 1
         result = handleLift(1)
         self.assertEqual(result,expexted)
     
     def test_curent_floor_2_should_be_lift1(self):
-        expexted = 'lift1'
+        expexted = 1
         result = handleLift(2)
         self.assertEqual(result,expexted)
 
+    def test_curent_floor_3_should_be_lift2(self):
+        expexted = 2
+        result = handleLift(3)
+        self.assertEqual(result,expexted)
 
 def handleLift(num):
-        return 'lift1'
+        lift =  min(range(len(lifts)), key=lambda i: abs(lifts[i]-num))
+        return lift + 1
 
 
 unittest.main()
