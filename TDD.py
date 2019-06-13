@@ -26,7 +26,16 @@ def handleLift(num,btn):
         size = len(lifts)
         for i in range(size):
                 if lifts[i].get('status') == btn or lifts[i].get('status') == 'none':
+                    if lifts[i].get('status') == 'up' and lifts[i].get('floor') <= num:
                         temps.insert(i,lifts[i])
+                    elif  lifts[i].get('status') == 'none' :
+                        temps.insert(i,lifts[i])
+
+                    if lifts[i].get('status') == 'down' and lifts[i].get('floor') >= num:
+                        temps.insert(i,lifts[i])
+                    elif  lifts[i].get('status') == 'none' :
+                        temps.insert(i,lifts[i])
+                        
         id =  min(range(len(temps)), key=lambda i: abs(temps[i].get('floor')-num))
         return [temps[id].get('liftID'),temps[id].get('status')]
 
