@@ -1,7 +1,7 @@
 import unittest
 
 # [lift1 ,lift2, lift3, lift4]
-lifts = [{'liftID':1,'floor':2,'status':'up'}, {'liftID':2,'floor':3,'status':'down'}, {'liftID':3,'floor':3,'status':'up'}, {'liftID':4,'floor':5,'status':'down'}]
+lifts = [{'liftID': 1, 'floor': 2, 'status': 'up'}, {'liftID': 2, 'floor': 3, 'status': 'down'}, {'liftID': 3, 'floor': 3, 'status': 'up'}, {'liftID': 4, 'floor': 5, 'status': 'down'}]
 
 
 class LiftTest(unittest.TestCase):
