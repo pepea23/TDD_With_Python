@@ -1,7 +1,7 @@
 import unittest
 
 # [lift1 ,lift2, lift3, lift4]
-lifts = [{'liftID': 1, 'floor': 2, 'status': 'up'}, {'liftID': 2, 'floor': 3, 'status': 'down'}, {'liftID': 3, 'floor': 3, 'status': 'up'}, {'liftID': 4, 'floor': 5, 'status': 'down'}]
+lifts = [{'liftID': 1, 'floor': 2, 'status': 'up'}, {'liftID': 2, 'floor': 3, 'status': 'down'}, {'liftID': 3, 'floor': 3, 'status': 'up'}, {'liftID': 4, 'floor': 3, 'status': 'down'}]
 
 
 class LiftTest(unittest.TestCase):
@@ -15,7 +15,7 @@ class LiftTest(unittest.TestCase):
         result = handleLift(2,'down')
         self.assertEqual(result, expexted)
 
-    def test_curent_floor_3_should_be_lift2(self):
+    def test_curent_floor_3_but_have_3_lift_same_floorshould_be_lift2(self):
         expexted = [3,'up']
         result = handleLift(3,'up')
         self.assertEqual(result, expexted)
