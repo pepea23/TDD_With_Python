@@ -1,17 +1,17 @@
 import unittest
 
 # [lift1 ,lift2, lift3, lift4]
-lifts = [{'floor':2,'status':'up'}, {'floor':3,'status':'down'}, {'floor':3,'status':'up'}, {'floor':5,'status':'down'}]
+lifts = [{'liftID':1,'floor':2,'status':'up'}, {'liftID':2,'floor':3,'status':'down'}, {'liftID':3,'floor':3,'status':'up'}, {'liftID':4,'floor':5,'status':'down'}]
 
 
 class LiftTest(unittest.TestCase):
     def test_curent_floor_1_should_be_lift1(self):
-        expexted = [2,'up']
+        expexted = [1,'up']
         result = handleLift(1,'up')
         self.assertEqual(result, expexted)
     
     def test_curent_floor_2_should_be_lift1(self):
-        expexted = [3,'down']
+        expexted = [2,'down']
         result = handleLift(2,'down')
         self.assertEqual(result, expexted)
 
@@ -28,7 +28,7 @@ def handleLift(num,btn):
                 if lifts[i].get('status') == btn:
                         temps.insert(i,lifts[i])
         id =  min(range(len(temps)), key=lambda i: abs(temps[i].get('floor')-num))
-        return [temps[id].get('floor'),temps[id].get('status')]
+        return [temps[id].get('liftID'),temps[id].get('status')]
 
 
 unittest.main()
