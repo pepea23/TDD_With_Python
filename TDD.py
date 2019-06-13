@@ -15,7 +15,7 @@ class LiftTest(unittest.TestCase):
         result = handleLift(2,'down')
         self.assertEqual(result, expexted)
 
-    def test_curent_floor_3_but_have_3_lift_same_floorshould_be_lift2(self):
+    def test_curent_floor_3_but_have_3_lift_same_floorshould_be_lift3(self):
         expexted = [3,'none']
         result = handleLift(3,'up')
         self.assertEqual(result, expexted)
